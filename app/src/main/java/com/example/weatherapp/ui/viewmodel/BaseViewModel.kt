@@ -1,12 +1,13 @@
 package com.example.weatherapp.ui.viewmodel
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import com.example.weatherapp.model.State
 
 /**
  * Base class that contains basic functionalities used in view model.
  */
-open class BaseViewModel : ViewModel() {
+open class BaseViewModel(app: Application) : AndroidViewModel(app) {
 
     fun showLoading(show: Boolean) {
         State.isLoading = show

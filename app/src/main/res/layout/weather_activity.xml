@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
 
     <data>
-
         <variable
-            name="isLoading"
-            type="Boolean" />
+            name="state"
+            type="com.example.weatherapp.model.State" />
 
-        <variable
-            name="isError"
-            type="Boolean" />
-
-        <variable
-            name="message"
-            type="String" />
     </data>
 
     <LinearLayout
@@ -24,8 +17,6 @@
         <include
             android:id="@+id/base_container"
             layout="@layout/base_fragment"
-            app:isError="@{isError}"
-            app:isLoading="@{isLoading}"
-            app:message="@{message}" />
+            app:state="@{state}" />
     </LinearLayout>
 </layout>

@@ -13,7 +13,7 @@ object State : BaseObservable() {
     var isLoading: Boolean = false
         set(value) {
             field = value
-            notifyPropertyChanged(BR.isLoading)
+            notifyChange()
         }
 
     //True if Error, False otherwise
@@ -21,7 +21,7 @@ object State : BaseObservable() {
     var isError: Boolean = false
         set(value) {
             field = value
-            notifyPropertyChanged(BR.isError)
+            notifyChange()
         }
 
     //Shows text message to the user.
@@ -29,6 +29,6 @@ object State : BaseObservable() {
     var message: String = "No data"
         set(value) {
             field = value
-            notifyPropertyChanged(BR.message)
+            notifyChange()
         }
 }
