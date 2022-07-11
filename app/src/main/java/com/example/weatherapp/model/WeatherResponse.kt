@@ -8,7 +8,11 @@ import com.google.gson.annotations.SerializedName
 data class WeatherResponse(
     @SerializedName("list")
     var weathers: List<Weather>
-)
+) {
+    fun isValidResponse() : Boolean {
+        return weathers.isNotEmpty()
+    }
+}
 
 data class Weather(
     var name: String?,
