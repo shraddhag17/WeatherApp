@@ -6,7 +6,23 @@
     <fragment
         android:id="@+id/weatherFragment"
         android:name="com.example.weatherapp.ui.WeatherFragment"
-        android:label="WeatherFragment"
-        tools:layout="@layout/weather_fragment" />
+        android:label="WeatherApp"
+        tools:layout="@layout/weather_fragment">
+        <action
+            android:id="@+id/action_weatherFragment_to_weatherDetailFragment"
+            app:destination="@id/weatherDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/weatherDetailFragment"
+        android:name="com.example.weatherapp.ui.WeatherDetailFragment"
+        android:label="WeatherDetails"
+        tools:layout="@layout/weather_detail_fragment">
+        <argument
+            android:name="weatherId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_weatherDetailFragment_to_weatherFragment"
+            app:destination="@id/weatherFragment" />
+    </fragment>
 
 </navigation>

@@ -3,9 +3,11 @@ package com.example.weatherapp.ui.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.databinding.WeatherItemBinding
 import com.example.weatherapp.model.Weather
+import com.example.weatherapp.ui.WeatherFragmentDirections
 import com.example.weatherapp.ui.viewmodel.WeatherItemViewModel
 
 /**
@@ -26,7 +28,12 @@ class WeatherAdapter(
             WeatherItemViewModel(items[position]),
             object : WeatherItemViewModel.OnItemClickListener {
                 override fun onItemClicked(weather: Weather) {
-                    //Handle click
+                    //Handle click of an item
+                    val action =
+                        WeatherFragmentDirections.actionWeatherFragmentToWeatherDetailFragment(
+                            weather.id ?: ""
+                        )
+                    holder.binding.root.findNavController().navigate(action)
                 }
             })
     }
@@ -35,6 +42,9 @@ class WeatherAdapter(
         return items.size
     }
 
+    /**
+     * View Holder class that holds Row/Item view and information
+     */
     class ItemVH(var binding: WeatherItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bindItem(vm: WeatherItemViewModel, listener: WeatherItemViewModel.OnItemClickListener) {
@@ -43,4 +53,5 @@ class WeatherAdapter(
             binding.executePendingBindings()
         }
     }
+
 }

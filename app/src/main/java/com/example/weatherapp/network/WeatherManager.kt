@@ -1,7 +1,7 @@
 package com.example.weatherapp.network
 
-import android.util.Log
 import com.example.weatherapp.common.network.RetrofitClient
+import com.example.weatherapp.model.WeatherDetailResponse
 import com.example.weatherapp.model.WeatherResponse
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -18,6 +18,17 @@ object WeatherManager : BaseManager() {
         return withContext(dispatcher) {
             // Blocking network request code
             RetrofitClient.client.getWeatherList()
+        }
+    }
+
+    suspend fun getWeatherDetails(
+        dispatcher: CoroutineDispatcher = Dispatchers.IO,
+        weatherId: String?
+    ): WeatherDetailResponse? {
+        // Move the execution of the coroutine to the I/O dispatcher
+        return withContext(dispatcher) {
+            // Blocking network request code
+            RetrofitClient.client.getWeatherDetails(weatherId ?: "")
         }
     }
 }

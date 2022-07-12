@@ -3,4 +3,8 @@
     <string name="no_data">No data</string>
     <string name="no_internet">Please connect to internet and try again later.</string>
     <string name="error_occurred">Error occurred. Please try again later.</string>
+    <string name="min_val_text">Min %s</string>
+    <string name="max_val_text">Max %s</string>
+    <string name="humidity_val_text">Humidity %s</string>
+    <string name="wind_val_text">Wind %s</string>
 </resources>
