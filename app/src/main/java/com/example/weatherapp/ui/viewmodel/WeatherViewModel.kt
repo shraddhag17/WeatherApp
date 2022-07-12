@@ -16,8 +16,8 @@ import kotlinx.coroutines.launch
  */
 class WeatherViewModel(var app: Application) : BaseViewModel(app) {
 
-    private var weather: MutableLiveData<List<Weather>> = MutableLiveData()
-    var weatherLiveData: LiveData<List<Weather>> = weather
+    private var weather: MutableLiveData<List<Weather>?> = MutableLiveData()
+    var weatherLiveData: LiveData<List<Weather>?> = weather
 
     fun getWeatherList() {
         if (ConnectivityManager.isNetworkConnected(app)) {

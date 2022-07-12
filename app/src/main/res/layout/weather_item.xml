@@ -44,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="@{data.details[0].main + '-' + data.details[0].description}"
+                android:text="@{data.details[0].title + '-' + data.details[0].description}"
                 android:textColor="@color/black"
                 android:textStyle="italic"
                 app:layout_constraintBottom_toTopOf="parent"
